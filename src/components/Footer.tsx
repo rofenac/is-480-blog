@@ -26,7 +26,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-base-content/60 hover:text-primary transition-colors">
+                <a href="https://github.com/rofenac/is-480-blog" target="_blank" rel="noopener noreferrer" className="text-base-content/60 hover:text-primary transition-colors">
                   GitHub Repository
                 </a>
               </li>

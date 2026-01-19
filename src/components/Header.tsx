@@ -28,7 +28,7 @@ export default function Header() {
         <ul className="menu menu-horizontal px-1 gap-2">
           <li><a href="#posts" className="hover:text-primary transition-colors">Posts</a></li>
           <li><a href="#about" className="hover:text-primary transition-colors">About</a></li>
-          <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a></li>
+          <li><a href="https://github.com/rofenac/is-480-blog" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a></li>
         </ul>
       </div>
 
@@ -52,7 +52,7 @@ export default function Header() {
           <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li><a href="#posts">Posts</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://github.com/rofenac/is-480-blog" target="_blank" rel="noopener noreferrer">GitHub</a></li>
           </ul>
         </div>
       </div>

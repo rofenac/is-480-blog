@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -9,6 +9,7 @@ interface BlogPost {
   id: number
   title: string
   excerpt: string
+  body?: string
   date: string
   tags: string[]
   readTime: string
@@ -18,33 +19,69 @@ interface BlogPost {
 const posts: BlogPost[] = [
   {
     id: 1,
-    title: 'Introduction to NDG Netlab+',
-    excerpt: 'An overview of NDG Netlab+ and what it provides for networking education. Understanding the platform before installation.',
-    date: 'Jan 18, 2026',
-    tags: ['Netlab+', 'Overview'],
-    readTime: '5 min read',
-  },
-  {
-    id: 2,
-    title: 'IT Lab Environment Setup',
-    excerpt: 'Preparing the college IT lab infrastructure for the Netlab+ installation. Hardware requirements and network considerations.',
-    date: 'Jan 15, 2026',
-    tags: ['Infrastructure', 'Setup'],
-    readTime: '8 min read',
-  },
-  {
-    id: 3,
-    title: 'Working with My Supervisor',
-    excerpt: 'Lessons learned from collaborating with my boss on this installation project. Communication and teamwork in IT.',
-    date: 'Jan 12, 2026',
-    tags: ['Internship', 'Teamwork'],
-    readTime: '6 min read',
+    title: 'Netlab+: The Neverending Saga',
+    excerpt: 'Choosing an internship over a project to work on installing NDG Netlab+ with my supervisors. Navigating the VMWare to Proxmox transition and planning the network infrastructure.',
+    body: `I chose to do an internship this quarter vice a project. This is mainly because I am already working on a sizeable project with my bosses, Aaron MacDonald and Prof. Kevin Blackwell. We are working on installing a product called NDG Netlab+. It is an on prem virtual hosting service that can spin up ephemeral virtual machines so students can work with virtualized networking and desktop assets in support of their studies. Currently, 90% of the hardware is installed. I just need to install the Netlab+ network switches and configure them. Software-wise, we are in a gray area. NDG, or Network Development Group, had been using VMWare ESXi as the hypervisor in their tech stack. Since the Broadcom acquisition of VMWare, Broadcom has been prioritizing enterprise level customers and pricing out mid to low level customers. Because of this, ESXi became too expensive and NDG moved to Proxmox for its hypervisor. Well, Proxmox WAS at version 8. Just recently Proxmox released version 9, which NDG now has to vet and test for integration. This means that at this point, we are trying to decide if we should just go ahead and roll with Proxmox 8 or wait for Proxmox 9 to be fully supported. What I think I might do is recommend to Prof. Blackwell to go ahead with Proxmox 8 and we will deal with the upgrade whenever it comes out because as of this writing, there is no forecasted commencement date for Proxmox 9 support. But other than that, we are ready to roll with the install. I have already constructed the network plan and Prof. Blackwell agrees with it. Basically we are bolting on the Netlab infrastructure on top of the existing classroom flat 192.168.0.0 subnet. By using NAT, we can strip all VLAN tags off the Netlab packets so there is no upstream configuration necessary. This coming week, I hope to get those switches installed and possibly convince Blackwell to roll with Proxmox 8.`,
+    date: 'Jan 17, 2026',
+    tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
+    readTime: '4 min read',
   },
 ]
+
+interface BlogPostModalProps {
+  post: BlogPost
+  onClose: () => void
+}
+
+function BlogPostModal({ post, onClose }: BlogPostModalProps) {
+  return (
+    <dialog className="modal modal-open">
+      <div className="modal-box max-w-3xl max-h-[85vh]">
+        <button
+          className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          onClick={onClose}
+        >
+          ✕
+        </button>
+        <div className="flex items-center gap-2 text-sm text-base-content/50 mb-2">
+          <time>{post.date}</time>
+          <span>•</span>
+          <span>{post.readTime}</span>
+        </div>
+        <h3 className="font-bold text-2xl mb-4">{post.title}</h3>
+        <div className="flex gap-2 mb-6">
+          {post.tags.map((tag) => (
+            <div key={tag} className="badge badge-primary badge-sm">
+              {tag}
+            </div>
+          ))}
+        </div>
+        <div className="prose prose-sm max-w-none text-base-content/80 leading-relaxed">
+          {post.body ? (
+            post.body.split('\n\n').map((paragraph, idx) => (
+              <p key={idx} className="mb-4">{paragraph}</p>
+            ))
+          ) : (
+            <p>{post.excerpt}</p>
+          )}
+        </div>
+        <div className="modal-action">
+          <button className="btn btn-primary" onClick={onClose}>
+            Close
+          </button>
+        </div>
+      </div>
+      <form method="dialog" className="modal-backdrop">
+        <button onClick={onClose}>close</button>
+      </form>
+    </dialog>
+  )
+}
 
 export default function BlogPosts() {
   const sectionRef = useRef<HTMLElement>(null)
   const cardsRef = useRef<HTMLDivElement[]>([])
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null)
 
   useGSAP(() => {
     cardsRef.current.forEach((card, index) => {
@@ -100,7 +137,10 @@ export default function BlogPosts() {
                   ))}
                 </div>
                 <div className="mt-4">
-                  <button className="btn btn-primary btn-sm btn-outline">
+                  <button
+                    className="btn btn-primary btn-sm btn-outline"
+                    onClick={() => setSelectedPost(post)}
+                  >
                     Read More
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -112,6 +152,13 @@ export default function BlogPosts() {
           ))}
         </div>
       </div>
+
+      {selectedPost && (
+        <BlogPostModal
+          post={selectedPost}
+          onClose={() => setSelectedPost(null)}
+        />
+      )}
     </section>
   )
 }
