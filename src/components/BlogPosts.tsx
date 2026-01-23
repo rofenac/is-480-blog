@@ -26,6 +26,15 @@ const posts: BlogPost[] = [
     tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
     readTime: '4 min read',
   },
+  {
+    id: 2,
+    title: 'Time Management',
+    excerpt: 'Choosing an internship over a project to work on installing NDG Netlab+ with my supervisors. Navigating the VMWare to Proxmox transition and planning the network infrastructure.',
+    body: `Not a whole happened this week. I kind of dropped the ball on my internship duties because I was swamped with school work. Next week I will try to get back on track. I have three concrete goals for the coming week. First, install the Netlab+ network switches. Second, obtain the login credentials for the Netlab+ control servers. Third, convince Prof. Blackwell to go ahead with Proxmox 8 instead of waiting for Proxmox 9 support. If I can those all done, I'll feel good about my internship progress.`,
+    date: 'Jan 24, 2026',
+    tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
+    readTime: '1 min read',
+  },
 ]
 
 interface BlogPostModalProps {
