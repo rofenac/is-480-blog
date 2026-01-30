@@ -35,6 +35,15 @@ const posts: BlogPost[] = [
     tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
     readTime: '1 min read',
   },
+  {
+    id: 3,
+    title: 'Baby Steps',
+    excerpt: 'Progress is Progress',
+    body: `I got the Netlab+ switches installed this week and partially configured. Then I will get them cabled up with a good boiler plate startup configuration. On Monday, I will talk to Kevin and report what I have done and try to get the information I need about a NDG point of contact and the login credentials for the Netlab+ control servers. Baby steps.`,
+    date: 'Jan 30, 2026',
+    tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
+    readTime: '1 min read',
+  },
 ]
 
 interface BlogPostModalProps {
