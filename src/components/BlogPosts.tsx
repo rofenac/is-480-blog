@@ -53,6 +53,15 @@ const posts: BlogPost[] = [
     tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
     readTime: '1 min read',
   },
+  {
+    id: 5,
+    title: 'My Networking Strategies',
+    excerpt: 'My networking strategy right now is pretty straightforward',
+    body: `My networking strategy right now is pretty straightforward and honestly still a work in progress. I'm not someone who naturally enjoy“networking” for the sake of networking, but I understand that relationships matter in IT just as much as technical skills do. One channel I'm using is LinkedIn, mostly because it's expected. I'm not a huge fan of it. A lot of it feels performative and disconnected from how people actually work day to day. That said, I do see value in it as a public-facing record of what I've actually done. I will be using it more as a living resume than a social platform, focusing on documenting real projects, lab work, and hands-on experience from my internship rather than buzzwords or fluff. Another important networking channel for me is through my wife, who has worked at Nike for over 20 years. She has a large internal network and has offered to help set up informational interviews with people in IT. I'm interested in these conversations not as a shortcut to a job, but as a way to better understand what working in a large enterprise IT environment is really like and what skills they expect from new hires. That feedback directly helps me decide what I should focus on learning and improving before I graduate. I've also been attending job fairs and talking with recruiters. Instead of just handing over a résumé, I try to ask specific questions about what they look for in entry-level candidates, where students tend to be weak technically, and what skills matter most once you're actually on the job. Between my coursework, my internship projects, and these conversations, I feel like I'm building a realistic picture of where I want to go in IT and what I need to keep learning after graduation. My goal isn't just to get hired, but to keep growing once I am.`,
+    date: 'Feb 13, 2026',
+    tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
+    readTime: '3 min read',
+  },
 ]
 
 interface BlogPostModalProps {
