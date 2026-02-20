@@ -67,6 +67,9 @@ const posts: BlogPost[] = [
     title: 'Ease and Pain',
     excerpt: 'Difficult IT problems that require a deep level of concentration and grit are my thing.',
     body: `After giving it some thought, I would say my easiest accomplishment this week in terms of the internship was showing Prof. Blackwell what the network infrastructure of the lab is now, after I set up everything up for Netlab+. Claude generated the diagram because I don’t have an artistic bone in my body. I did however, have to describe the lab accurately to Claude because as with any computer system, it’s garbage in, garbage out. So effort was needed on my part. The presentation itself went well. The most difficult thing this week was figuring out why the subinterfaces on the Netlab+ servers were bleeding inter-VLAN traffic across their network interfaces. I had it in my head that each subinterface needed to be strictly isolated. No, they don’t. Again, Claude brought up the point that cross VLAN chatter is by design and that it is Netlab+ and the very nature of VMs that provide the desired isolation from each other and the native VLAN. NDG even has you create a virtual bridge called, “SAFETY_NET” that has no virtual bridges associated with it, guaranteeing isolation. It took me three days to figure all that out. I live for that stuff, though. Difficult IT problems that require a deep level of concentration and grit are my thing.`,
+    date: 'Feb 20, 2026',
+    tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
+    readTime: '1 min read',
   },
 ]
 
