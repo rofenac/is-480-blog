@@ -80,6 +80,15 @@ const posts: BlogPost[] = [
     tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
     readTime: '1 min read',
   },
+  {
+    id: 8,
+    title: 'Striving is Thriving',
+    excerpt: 'I have become more proactive in many ways.',
+    body: `One thing I would strive to improve on is being more proactive. Let me qualify that. I feel like over the course of this course of study, I have become more proactive in many ways. The facet I want to improve on is knowing when to take charge and when to ease back. With recent events as an example, sometimes if I wait on my boss or bosses to initiate a project or to define what they want, then nothing happens. Sometimes it is best to just do the work, and present it to the management when it is done. I realize that this strategy will NOT work in the majority of real world scenarios, and that is why I need to be able to read the room and adjust to different managerial styles. Some workplaces want employees to follow a very clear chain of command and wait for direction. Others expect employees to take initiative and move things forward without being asked. Learning how to recognize which type of environment I am in is something I want to get better at. This internship has been a good example of that challenge. It is the first time I have worked in an environment with almost no direct oversight or direction. At first I found that difficult because I kept waiting for someone to define the scope of a project or tell me what the next step should be. After months of waiting, I realized that nothing was going to happen unless I created my own direction and vision for the work. Once I made that shift, things started moving forward. I began outlining what I thought needed to be done and then working through those tasks step by step. When I had something tangible, I presented it to management for feedback. In this environment that approach actually worked well. Going forward, this experience is something I will file away and add to my professional toolkit. It taught me that initiative is valuable, but it also reminded me that awareness of the workplace culture and expectations is just as important.`,
+    date: 'Mar 6, 2026',
+    tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
+    readTime: '1 min read',
+  },
 ]
 
 interface BlogPostModalProps {
