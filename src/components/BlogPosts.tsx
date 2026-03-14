@@ -89,6 +89,15 @@ const posts: BlogPost[] = [
     tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
     readTime: '1 min read',
   },
+  {
+    id: 9,
+    title: 'Good Enough',
+    excerpt: 'I feel like the internship was a success overall.',
+    body: `I feel like the internship was a success overall. It kind of stalled in the beginning, but I worked through the issues and the Netlab installation is in a good spot. The biggest takeaway for me, besides learning more about IP networking, is that sometimes being proactive is the most effective stance. Other than that, I don't have much else to say about it. It was a good experience and I look forward to completing the installation next quarter.`,
+    date: 'Mar 14, 2026',
+    tags: ['Netlab+', 'Proxmox', 'Infrastructure'],
+    readTime: '1 min read',
+  },
 ]
 
 interface BlogPostModalProps {
